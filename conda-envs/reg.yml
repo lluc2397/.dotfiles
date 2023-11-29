@@ -1,0 +1,6 @@
+name: reg
+
+dependencies:
+  - flake8
+  - mypy
+  - black

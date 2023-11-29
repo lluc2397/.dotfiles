@@ -1,0 +1,20 @@
+name: data-sc
+
+dependencies:
+  - numpy
+  - matplotlib
+  - pandas
+  - flake8
+  - mypy
+  - black
+  - coverage
+  - openpyxl
+  - pyarrow
+  - fastparquet
+  - scikit-learn
+  - xgboost
+  - keras
+  - seaborn
+  - ipykernel
+  - plotly
+  - scikit-learn-intelex

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+function set_all_links(){
+
+directory="$HOME/.dotfiles/settings"
+
+for entry in "$directory"/* "$directory"/.[!.]*; do
+    name="${entry/\/home\/lucas\/.dotfiles\/settings/}"
+    create_link "$entry" "$name"
+done
+    echo "Link created"
+}
+
+
+function create_link(){
+    main_setting="$1"
+    sync_setting="${2:-$main_setting}"
+    ln -s "$main_setting" "$HOME$sync_setting"
+}
+
+echo "Linking files"
+set_all_links

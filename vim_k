@@ -1,0 +1,20 @@
+w => next word first char
+e => next word last char
+Ctrl + w => vertical windwo split
+Ctrl + arrows => switch between windows
+= => format style
+% => create file
+d => create directory
+V => select whole line
+Shift + k => show definition
+yy => Yank (copy) the current line, including the newline character.
+3yy => Yank (copy) three lines, starting from the line where the cursor is positioned.
+y$ => Yank (copy) everything from the cursor to the end of the line.
+y^ => Yank (copy) everything from the cursor to the start of the line.
+yw => Yank (copy) to the start of the next word.
+yiw => Yank (copy) the current word.
+y% => Yank (copy) to the matching character. By default supported pairs are (), {}, and []. Useful to copy text between matching brackets.
+dd => Delete (cut) the current line, including the newline character.
+3dd => Delete (cut) three lines, starting from the line where the cursor is positioned,
+d$ => Delete (cut) everything from the cursor to the end of the line.
+<C-w>w => switch from editor to navtree

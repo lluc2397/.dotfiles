@@ -1,0 +1,199 @@
+#C# Ansible
+alias rap='ansible-playbook --vault-password-file pssw.txt'
+
+#C# Remap
+alias sukb="setxkbmap us"
+alias slkb="setxkbmap latam"
+
+#C# Fuzzyfinder
+alias nff='vim $(_fzf)'
+alias fz='_fzf'
+alias pfz='_fzf_tmux $HOME/Dev $HOME/Projects'
+
+#C# Tmux
+alias tx='_new_named_session'
+alias ftx='_fzf_tmux'
+
+#C# Protobuff
+alias proto='$HOME/.local/lib/protoc/bin/protoc'
+alias protopy='proto -I=. --python_out=pyi_out:. '
+
+#C# Venv
+alias venv='py -m venv'
+alias av='_activate_venv'
+alias create_activate_venv='_create_activate_venv'
+#D# Creates a new virtual environment
+alias cav='create_activate_venv'
+
+#C# Rust
+alias nrd='_new_rust_dir'
+
+#C# Conda
+alias cvenv='conda create -n'
+alias cact='conda activate'
+alias pip-ls='conda list'
+alias deact='conda deactivate'
+alias ci='conda install'
+
+#C# Jupyter
+alias njf='_new_jupyter_file'
+
+#C# Docker
+alias docclean='docker system prune -a --volumes --force'
+alias install_backup_docker='_load_last_backup_docker'
+alias docdanim='docker rmi $(docker images -f "dangling=true" -q)'
+alias dcpb='_docker_copy'
+alias run_local_dockerfile='docker run -it -v $(pwd):/app'
+
+#C# Alembic
+alias alrev='alembic revision --autogenerate'
+#D# Equivalent to makemigrations for django
+alias almig='alembic upgrade head'
+#D# Applies the migration
+alias almigrate='alrev && almig'
+
+#C# Go
+alias gopack='mk_go_pack'
+#D# Creates a Go packages
+
+#C# C
+alias compile_c='_compile_c'
+#D# Compile a C module
+
+#C# C++
+alias compile_cpp='_compile_cpp'
+
+#C# Cuda
+alias compile_cuda='_compile_cuda'
+
+#C# Rust
+alias compile_rust='cargo build --release'
+
+#C# Python
+alias py='python3'
+alias create_exercise='$SCRIPT/create_exercise'
+
+#C# Django
+alias manage='py manage.py'
+alias runserver='manage runserver'
+alias makemigrations='manage makemigrations'
+alias migrate='manage migrate'
+alias makemig='makemigrations && migrate'
+alias delete_mig='_delete_all_migrations'
+alias local_settings='--settings=config.settings.local'
+alias restart_migrations='_restart_migrations'
+alias restart_db='load_last_backup_locally && manage admin_pass'
+alias runsex='manage runserver_plus example.com:8000 --cert-file certs/cert.pem --key-file certs/key.pem'
+alias runasex='py -m uvicorn config.asgi:application --host example.com --port 8000 --ssl-keyfile certs/key.pem --ssl-certfile certs/cert.pem --reload'
+
+#C# Git
+alias gsndv='_git_save_dev_new_branch'
+#D# Saves, push and creates a new branch remotely
+alias gsw='_git_save_everywhere'
+#D# Saves and push over all the remotes
+alias cgb='_current_git_branch'
+#D# Get the current branch
+alias gs="_git_regular_save"
+#D# Saves and push
+alias gck="_git_custom_key"
+#D# Do not remember find out. git -c core.sshCommand="ssh -i $SSH_KEY" $COMMAND
+alias gtpt='_new_tag_push_tag'
+#D# Create a new tag and push to origin with this tag
+alias gsbm='git submodule add'
+#D# Add a submodule (look also subtree) than link to an other git repo into the current one. Creates a link in github
+
+#C# Assembly
+alias assemble="nasm -f elf64"
+#D# assemble the program
+alias link-ass="_link_assembly_to_executable"
+alias create-ass="_create_executable_from_assemble"
+
+#C# Main
+alias rmdir='rm -rf'
+alias fullclean='sudo apt -y autoremove && sudo apt autoclean && sudo apt autopurge'
+alias update='sudo apt update && sudo apt -y upgrade'
+alias aldia='update && sudo snap refresh && fullclean'
+alias cprsync='_copy_with_rsync'
+alias cptar='_copy_with_tar'
+alias med='_create_enter_dir'
+alias beexec='sudo chmod u+x'
+alias open='xdg-open'
+alias extract='_extract_tgz'
+alias count='_count_files_inside'
+alias rs='source $HOME/.zshrc && update_alias && echo Source and alias updated && tmux source-file $CONFIG/.tmux.conf'
+alias obf='cd $DOTS && vim .'
+alias inv='tx $HOME/Projects/invfin/ && cd backend && cact invfin'
+alias es='vim $CONFIG/.zshrc'
+alias server_imp='_import_server_invfin_docs'
+alias biggest_file='sudo du -h --max-depth=1 / | sort -h'
+alias bgf='du -a | sort -nr | head'
+alias agent='eval "$(ssh-agent -s)"'
+
+alias lsf='_list_and_filter'
+alias notes='cd $HOME/Notes && git pull github master'
+alias sd='_shutdown_and_save'
+alias ed='sudo nvim /etc/systemd/system/'
+#D# Edit the deamons services
+
+#C# Todo
+alias todo='$TODO'
+alias ctt='todo task create'
+alias rtt='todo task read'
+alias utt='todo task update'
+alias cpt='todo project create'
+alias rpt='todo project read'
+alias upt='todo project update'
+
+#C# Cookiecutter
+alias create_cookie='_create_cookiecutter_project'
+alias cookie_ds='_create_cookiecutter_data'
+
+#C# Ssh
+alias nsk='_create_ssh_key'
+alias ssk='_send_ssh_key'
+alias showkey='_show_ssh_key'
+alias ata='_add_to_agent'
+
+#C# Server
+alias download_backup='_download_backup'
+alias download_and_load_backup='_download_and_load_backup'
+alias start='inv && make up-b'
+alias load_last_backup='_load_last_backup'
+alias load_last_backup_locally='_load_last_backup_locally'
+alias restup_server='_run_ssh_command_on_remote_server'
+alias restart_migrations_remotely='_restart_migrations_remotely'
+alias fast_deployment='_fast_deployment'
+
+#C# Web
+alias cicd="_ci_cd_pipeline"
+
+#C# Postgres
+alias copy_db='_copy_db'
+alias export_table='_export_table'
+alias import_table='_import_table'
+
+#C# Alias
+alias pyalias='py $DOTS/pyalias.py'
+alias update_alias='pyalias update'
+alias ca='pyalias alias'
+#D# An alternative to alias to see your custom alias
+alias cats='pyalias categories'
+#D# An alternative to categories to see your categories for the custom alias
+alias ea='vim $CONFIG/.bash_alias'
+alias ef='vim $CONFIG/.bash_functions.sh'
+alias new_alias='_create_new_alias'
+alias delete_alias='_delete_alias'
+alias ec='vim $CONFIG'
+alias ev='vim $CONFIG/.config/nvim'
+#C# Others
+alias vim='nvim'
+alias refresh_keys='sudo apt-key adv --refresh-keys --keyserver keyserver.ubuntu.com'
+alias f='ls | grep'
+alias exos='cd $HOME/Dev/Exercises/'
+alias tree-dir='find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/| - \1/"'
+alias tree-content='find | sed "s|[^/]*/|- |g"'
+alias con-ap='bluetoothctl connect F8:4D:89:37:41:A0'
+#D# connect to the airpods
+alias xsc="xclip -selection clipboard"
+alias my_ip="ip address | grep -o \"inet 192.*/\" | awk '{ print \$2 }' | tr / ' ' | xargs"
+

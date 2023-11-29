@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+fonts_dir="$HOME/.fonts"
+
+if [[ -d "$fonts_dir" ]]; then
+    echo "Directory exists"
+else
+    mkdir "$fonts_dir"
+    cd "$fonts_dir"
+fi
+echo "Downloading fonts"
+curl -L -o "$fonts_dir/fonts.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip
+unzip "$fonts_dir/fonts.zip"
+fc-cache -fv
+echo "Fonts installed"

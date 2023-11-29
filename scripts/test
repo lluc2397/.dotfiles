@@ -1,0 +1,18 @@
+#!/bin/bash
+
+num_times="$1"
+tests_to_create=()
+
+for ((i=1; i<=num_times; i++)); do
+    read -p "Test $i:" test_values
+
+    tests_to_create+=("$test_values")
+done
+
+echo "$tests_to_create"
+
+
+for test in "${tests_to_create[@]}"; do
+    echo "run_test(${test%% *}, ${test#* })"
+done
+

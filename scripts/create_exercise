@@ -1,0 +1,61 @@
+#!/bin/bash
+
+write_to_file() {
+    # local is used to make the variables only available inside the method
+    local file="$1"
+    local method_name="$2"
+    local full_method="$3"
+
+    echo "import sys" >> "$file"
+    echo "" >> "$file"
+    echo "from typing import List" >> "$file"
+    echo "" >> "$file"
+    echo "sys.tracebacklimit = 0" >> "$file"
+    echo "" >> "$file"
+    echo "" >> "$file"
+    echo "class Solution:" >> "$file"
+    echo "    $full_method" >> "$file"
+    echo "        pass" >> "$file"
+    echo "" >> "$file"
+    echo "" >> "$file"
+    echo "def run_test(method, expected, *args, **kwargs):" >> "$file"
+    echo "    result = getattr(Solution(), method)(*args, **kwargs)" >> "$file"
+    echo "    assert (" >> "$file"
+    echo "        expected == result" >> "$file"
+    echo '    ), f"Result is {result} and the expected value: {expected}"' >> "$file"
+    echo '    print(f"{expected} success ✅")' >> "$file"
+    echo "" >> "$file"
+}
+
+get_method_name() {
+    local full_method="$1"
+    local strarr
+    IFS='(' read -ra strarr <<< "$full_method"
+    local method_name="${strarr[0]#* }"
+    echo "$method_name"
+}
+
+read_tests() {
+    local num_times="$1"
+    for ((i=1; i<=num_times; i++)); do
+        read -p "Test $i:" test_values
+        echo "run_test('$3', ${test_values%% *}, ${test_values#* })" >> "$2"
+    done
+}
+
+# Main script
+read -p "Enter the function: " full_method
+method_name=$(get_method_name "$full_method")
+
+read -p "Enter the number of tests: " num_times
+if ! [[ "$num_times" =~ ^[0-9]+$ ]]; then
+    echo "Invalid input. Please enter a positive integer."
+    exit 1
+fi
+
+echo "To input the test add the expected result first then the parameters of the function"
+full_path_file="$method_name.py"
+touch "$full_path_file"
+write_to_file "$full_path_file" "$method_name" "$full_method" 
+read_tests "$num_times" "$full_path_file" "$method_name"
+echo "Exercise created you can find it here $full_path_file"

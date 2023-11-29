@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+echo "Setting up neovim and packer"
+local_bin="$HOME/.local/bin" 
+
+if [[ -d "$local_bin" ]]; then
+    echo "Directory exists"
+else
+    mkdir "$local_bin"
+fi
+
+cd $local_bin 
+
+if [[ -f "$local_bin/nvim.appimage" ]]; then
+    echo "Nvim installed"
+else
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+    chmod u+x nvim.appimage
+    ./nvim.appimage --appimage-extract
+    ./squashfs-root/AppRun --version
+    sudo mv squashfs-root /
+    sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
+fi
+
+
+echo "Nvim installed, setting up packer"
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+echo "Packer installed"

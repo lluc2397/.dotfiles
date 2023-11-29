@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+sudo apt -y install fonts-powerline curl wget zsh tmux fzf
+
+echo "Changing the shell"
+chsh -s /usr/bin/zsh
+echo "Shell changed to zsh"
+
+. "$HOME/.dotfiles/scripts/installation/downloadFonts"
+
+echo "Installing OMZ"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
+. "$HOME/.dotfiles/scripts/installation/neovimSetup"
+
+. "$HOME/.dotfiles/scripts/installation/createLinks"
