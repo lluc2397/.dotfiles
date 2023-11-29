@@ -4,9 +4,8 @@ dependencies:
   - numpy
   - matplotlib
   - pandas
-  - flake8
+  - ruff
   - mypy
-  - black
   - coverage
   - openpyxl
   - pyarrow
