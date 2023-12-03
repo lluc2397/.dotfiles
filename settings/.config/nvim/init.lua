@@ -1,1 +1,1 @@
-require("lucas")
+require("config")

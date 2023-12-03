@@ -16,6 +16,7 @@ function create_link(){
     main_setting="$1"
     sync_setting="${2:-$main_setting}"
     ln -s "$main_setting" "$HOME$sync_setting"
+    #ln -ns "$main_setting" "$HOME$sync_setting" use the n when is a directory
 }
 
 echo "Linking files"
