@@ -15,7 +15,7 @@ return {
 			"<leader>fs",
 			function()
 			  require("telescope.builtin").grep_string({
-				cwd = require("lazy.core.config").options.root,
+--				cwd = require("lazy.core.config").options.root,
 				search = vim.fn.input("Grep > "),
 			  })
 			end,
@@ -25,7 +25,7 @@ return {
 			"<C-p>",
 			function()
 			  require("telescope.builtin").git_files({
-				cwd = require("lazy.core.config").options.root,
+--				cwd = require("lazy.core.config").options.root,
 			  })
 			end,
 			desc = "Find Git File",
@@ -35,7 +35,7 @@ return {
 		  "<leader>ff",
 		  function()
 			require("telescope.builtin").find_files({
-			  cwd = require("lazy.core.config").options.root,
+--			  cwd = require("lazy.core.config").options.root,
 			})
 		  end,
 		  desc = "Find Plugin File",
@@ -56,8 +56,8 @@ return {
 			  until not plugin
 			end
 			require("telescope.builtin").live_grep({
-			  default_text = "/",
-			  search_dirs = vim.tbl_values(files),
+--			  default_text = "/",
+--			  search_dirs = vim.tbl_values(files),
 			})
 		  end,
 		  desc = "Find Lazy Plugin Spec",

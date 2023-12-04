@@ -97,9 +97,7 @@ class BaseCLI:
             json.dump(data, w)
         return None
 
-    def get_json(
-        self,
-    ) -> Dict[str, Dict[str, Union[Dict[str, str], List[str]]]]:
+    def get_json(self) -> Dict[str, Dict[str, Union[Dict[str, str], List[str]]]]:
         try:
             with open(self.cache_file, "r") as r:
                 return json.load(r)
