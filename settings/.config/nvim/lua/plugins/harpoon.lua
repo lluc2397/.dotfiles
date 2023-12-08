@@ -1,15 +1,20 @@
 return {
-	"ThePrimeagen/harpoon",
-	lazy = false,
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-	},
-	keys = {
-		{ "<C-cl>", "<cmd>lua require('harpoon.mark').clear_all()<cr>", desc = "Clear all marks" },
-		{ "<leader>a", "<cmd>lua require('harpoon.mark').add_file()<cr>", desc = "Mark file with harpoon" },
-		{ "<leader>r", "<cmd>lua require('harpoon.mark').rm_file()<cr>", desc = "Remove file from harpoon" },
-		{ "<C-a>", "<cmd>lua require('harpoon.ui').nav_next()<cr>", desc = "Go to next harpoon mark" },
-		{ "<C-l>", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", desc = "Go to previous harpoon mark" },
-		{ "<C-e>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "Show harpoon marks" },
-	},
-}
+    "ThePrimeagen/harpoon",
+    lazy = false,
+    branch = "harpoon2",
+    config = function()
+      local harpoon = require("harpoon")
+      ---@diagnostic disable-next-line: missing-parameter
+      harpoon:setup()
+      local function map(lhs, rhs, opts)
+        vim.keymap.set("n", lhs, rhs, opts or {})
+      end
+      map("<leader>a", function() harpoon:list():append() end)
+      map("<leader>r", function() harpoon:list():remove() end)
+      map("<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+      map("<C-a>", function() harpoon:list():prev() end)
+      map("<C-l>", function() harpoon:list():next() end)
+      map("<C-cl>", function() harpoon:list():clear() end)
+    end
+  }
+
