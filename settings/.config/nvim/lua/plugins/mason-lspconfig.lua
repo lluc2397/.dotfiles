@@ -6,6 +6,7 @@ local opts = {
         "rust_analyzer",
         "ruff_lsp",
         "volar",
+        "pyright",
 	},
 
 	automatic_installation = true,
@@ -29,10 +30,10 @@ local config = function()
       keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
       opts.desc = "Go to declaration"
-      keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+      keymap.set("n", "gd", vim.lsp.buf.declaration, opts) -- go to declaration
 
       opts.desc = "Show LSP definitions"
-      keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+      keymap.set("n", "gD", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
 
       opts.desc = "Show LSP implementations"
       keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
@@ -76,19 +77,16 @@ local config = function()
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    -- configure html server
     lspconfig["bashls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    -- configure typescript server with plugin
     lspconfig["tsserver"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    -- configure css server
     lspconfig["ruff_lsp"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
@@ -99,13 +97,16 @@ local config = function()
         on_attach = on_attach,
       })
 
-    -- configure python server
+    lspconfig["pyright"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
     lspconfig["rust_analyzer"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,

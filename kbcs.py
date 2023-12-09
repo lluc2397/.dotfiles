@@ -6,7 +6,7 @@ import subprocess
 import sys
 from collections import defaultdict
 from pathlib import Path
-from typing import Any, DefaultDict, Dict, List, Union
+from typing import Any, DefaultDict, Union
 
 HOME: Path = Path.home()
 ALIAS_CACHE: str = f"{HOME}/.alias_cache/.alias_cache"
@@ -89,15 +89,15 @@ class BaseCLI:
         self.write(self.parse())
         return None
 
-    def parse(self) -> DefaultDict[str, Dict]:
+    def parse(self) -> DefaultDict[str, dict]:
         return defaultdict()
 
-    def write(self, data: Dict[str, Dict]) -> None:
+    def write(self, data: dict[str, dict]) -> None:
         with open(self.cache_file, "w+") as w:
             json.dump(data, w)
         return None
 
-    def get_json(self) -> Dict[str, Dict[str, Union[Dict[str, str], List[str]]]]:
+    def get_json(self) -> dict[str, dict[str, Union[dict[str, str], list[str]]]]:
         try:
             with open(self.cache_file, "r") as r:
                 return json.load(r)
@@ -129,7 +129,7 @@ class BaseCLI:
 
     @staticmethod
     def _show(to_show: Union[str, Any]) -> None:
-        if type(to_show) == str:
+        if isinstance(to_show, str):
             print(to_show)
         else:
             print("\n".join(to_show))
@@ -147,7 +147,7 @@ class BaseCLI:
 class Keybindigs(BaseCLI):
     cache_file: str = f'{os.environ["DOTS"]}/.kb_cache'
 
-    def parse(self) -> DefaultDict[str, Dict]:
+    def parse(self) -> DefaultDict[str, dict]:
         result: DefaultDict = defaultdict(dict)
         for k_f, n in [("keys", TMUX), ("vim_k", NEOVIM)]:
             with open(k_f, "r") as f:
@@ -163,7 +163,7 @@ class Keybindigs(BaseCLI):
     @manage_error()
     def show(
         self,
-        info_retrieved: Dict[str, Any],
+        info_retrieved: dict[str, Any],
         search: str,
     ) -> None:
         if possibilities := self.get_possibilities(search, list(info_retrieved.keys())):
@@ -174,12 +174,14 @@ class Keybindigs(BaseCLI):
             return self._show(f"{search_msg}\n\n{result}")
         self.exit_with_message("Nothing found")
 
-    def get_possibilities(self, search: str, options: List[str]) -> List[str]:
+    def get_possibilities(self, search: str, options: list[str]) -> list[str]:
         return difflib.get_close_matches(search, options) if search else options
 
     def prepare_message(
-        self, info_retrieved: Dict[str, Any], possibilities: List[str]
-    ) -> List[str]:
+        self,
+        info_retrieved: dict[str, Any],
+        possibilities: list[str],
+    ) -> list[str]:
         return [
             self.prepare_action_to_show(**info_retrieved[possibility])
             for possibility in possibilities
