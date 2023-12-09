@@ -128,7 +128,7 @@ alias server_imp='_import_server_invfin_docs'
 alias biggest_file='sudo du -h --max-depth=1 / | sort -h'
 alias bgf='du -a | sort -nr | head'
 alias agent='eval "$(ssh-agent -s)"'
-
+alias p='$PROJECTS'
 alias lsf='_list_and_filter'
 alias notes='cd $HOME/Notes && git pull github master'
 alias sd='_shutdown_and_save'

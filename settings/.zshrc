@@ -28,6 +28,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	zsh-syntax-highlighting
+    git
 )
 
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv)
