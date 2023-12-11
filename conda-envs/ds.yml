@@ -2,6 +2,7 @@ name: data-sc
 
 dependencies:
   - numpy
+  - polars
   - matplotlib
   - pandas
   - ruff

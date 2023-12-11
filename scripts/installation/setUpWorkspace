@@ -1,0 +1,8 @@
+workspace="$HOME/.dotfiles/settings/.workspace"
+
+if [[ -f "$HOME/.workspace" ]]; then
+    echo "Found"
+else
+    cp "$workspace" "$HOME/.workspace"
+    echo "Finish the workspace"
+fi

@@ -68,6 +68,9 @@ export EDITOR=nvim
 . $CONFIG/.bash_functions.sh
 
 
+if [[ -f "$HOME/.workspace" ]]; then
+    source "$HOME/.workspace"
+fi
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/lucas/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"

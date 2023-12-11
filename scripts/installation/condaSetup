@@ -1,0 +1,5 @@
+!#/usr/bin/bash
+
+
+# loop over files in conda-envs and crate envs
+conda create env -f

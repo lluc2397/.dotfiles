@@ -1,5 +1,6 @@
-name: reg
+name: neo
 
 dependencies:
   - mypy
+  - pynvim
   - ruff

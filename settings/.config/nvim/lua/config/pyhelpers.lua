@@ -40,6 +40,8 @@ function setPythonVenv()
             print(sys_python)
             vim.g.python3_host_prog = sys_python
         elseif local_venv ~= nil then
+            -- make this setting optional maybe I want to use the neo 
+            -- config anyways 'cause ruff isn't installed or smt
             print(local_venv)
             vim.g.python3_host_prog = local_venv
         else

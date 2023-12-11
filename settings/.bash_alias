@@ -8,7 +8,7 @@ alias slkb="setxkbmap latam"
 #C# Fuzzyfinder
 alias nff='vim $(_fzf)'
 alias fz='_fzf'
-alias pfz='_fzf_tmux $HOME/Dev $HOME/Projects'
+alias pfz='_fzf_tmux $WORK'
 
 #C# Tmux
 alias tx='_new_named_session'
@@ -16,14 +16,14 @@ alias ftx='_fzf_tmux'
 
 #C# Protobuff
 alias proto='$HOME/.local/lib/protoc/bin/protoc'
+#D# Remember to check if it does exists otherwise install it
 alias protopy='proto -I=. --python_out=pyi_out:. '
 
 #C# Venv
 alias venv='py -m venv'
 alias av='_activate_venv'
-alias create_activate_venv='_create_activate_venv'
+alias cav='_create_activate_venv'
 #D# Creates a new virtual environment
-alias cav='create_activate_venv'
 
 #C# Rust
 alias nrd='_new_rust_dir'
@@ -34,6 +34,7 @@ alias cact='conda activate'
 alias pip-ls='conda list'
 alias deact='conda deactivate'
 alias ci='conda install'
+alias cenvf='conda env create -f'
 
 #C# Jupyter
 alias njf='_new_jupyter_file'
@@ -128,6 +129,7 @@ alias server_imp='_import_server_invfin_docs'
 alias biggest_file='sudo du -h --max-depth=1 / | sort -h'
 alias bgf='du -a | sort -nr | head'
 alias agent='eval "$(ssh-agent -s)"'
+alias copy='xclip -sel clip'
 alias p='$PROJECTS'
 alias lsf='_list_and_filter'
 alias notes='cd $HOME/Notes && git pull github master'
@@ -188,7 +190,7 @@ alias ev='vim $CONFIG/.config/nvim'
 #C# Others
 alias vim='nvim'
 alias refresh_keys='sudo apt-key adv --refresh-keys --keyserver keyserver.ubuntu.com'
-alias f='ls | grep'
+alias f='l | grep'
 alias exos='cd $HOME/Dev/Exercises/'
 alias tree-dir='find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/| - \1/"'
 alias tree-content='find | sed "s|[^/]*/|- |g"'
