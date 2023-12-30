@@ -17,7 +17,7 @@ return {
       map("<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
       map("<C-a>", function() harpoon:list():prev() end)
       map("<C-l>", function() harpoon:list():next() end)
-      map("<C-cl>", function() harpoon:list():clear() end)
+      map("<leader>cl", function() harpoon:list():clear() end)
     end
   }
 

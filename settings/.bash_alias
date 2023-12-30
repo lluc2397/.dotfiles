@@ -5,7 +5,7 @@ alias rap='ansible-playbook --vault-password-file pssw.txt'
 alias sukb="setxkbmap us"
 alias slkb="setxkbmap latam"
 
-#C# Fuzzyfinder
+#C# Fuzzy
 alias nff='vim $(_fzf)'
 alias fz='_fzf'
 alias pfz='_fzf_tmux $WORK'

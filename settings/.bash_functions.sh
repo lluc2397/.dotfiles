@@ -211,11 +211,11 @@ _add_to_agent() {
 
 #C# Venv
 _activate_venv() {
-	VENV_TYPE="${1:-conda}"
-	VENV_NAME="${2:-myenv}"
-	if [ "$VENV_TYPE" = "conda" ]; then
+	VENV_TYPE="${1:-venv}"
+	VENV_NAME="${2:-venv}"
+	if [[ "$VENV_TYPE" = "conda" ]]; then
 		conda activate $VENV_NAME
-	else
+    else
 		source "$VENV_NAME"/bin/activate
 	fi
 }
@@ -231,8 +231,8 @@ _create_venv() {
 }
 
 _create_activate_venv() {
-	VENV_TYPE="${1:-conda}"
-	VENV_NAME="${2:-myenv}"
+	VENV_TYPE="${1:-venv}"
+	VENV_NAME="${2:-venv}"
 	_create_venv "$VENV_TYPE" "$VENV_NAME"
 	_activate_venv "$VENV_TYPE" "$VENV_NAME"
 }
