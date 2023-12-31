@@ -9,6 +9,7 @@ alias slkb="setxkbmap latam"
 alias nff='vim $(_fzf)'
 alias fz='_fzf'
 alias pfz='_fzf_tmux $WORK'
+alias gfz='cd $(_fzf)'
 
 #C# Tmux
 alias tx='_new_named_session'
