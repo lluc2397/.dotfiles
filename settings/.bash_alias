@@ -8,8 +8,8 @@ alias slkb="setxkbmap latam"
 #C# Fuzzy
 alias nff='vim $(_fzf)'
 alias fz='_fzf'
-alias pfz='_fzf_tmux $WORK'
-alias gfz='cd $(_fzf)'
+alias gpj='_fzf_tmux $WORK'
+alias ff='cd $(_fzf)'
 
 #C# Tmux
 alias tx='_new_named_session'
