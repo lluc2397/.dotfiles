@@ -21,6 +21,7 @@ alias proto='$HOME/.local/lib/protoc/bin/protoc'
 alias protopy='proto -I=. --python_out=pyi_out:. '
 
 #C# Venv
+alias arv='source venv/bin/activate'
 alias venv='py -m venv'
 alias av='_activate_venv'
 alias cav='_create_activate_venv'
