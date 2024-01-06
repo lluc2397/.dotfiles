@@ -6,6 +6,6 @@ end
 
 return {
     dir = "/home/lucas/Projects/knowbase/knowbase.nvim",
-    lazy = true,
+    lazy = false,
     config = config,
 }
