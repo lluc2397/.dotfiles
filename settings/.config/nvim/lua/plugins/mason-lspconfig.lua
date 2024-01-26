@@ -116,6 +116,19 @@ local config = function()
     lspconfig.rust_analyzer.setup({
         capabilities = capabilities,
         on_attach = on_attach,
+        settings = {
+            ['rust-analyzer'] = {
+                diagnostics = {
+                    enable = false,
+                },
+                inlayHints = {
+                    enable = true,
+                    showParameterNames = true,
+                    parameterHintsPrefix = "<- ",
+                    otherHintsPrefix = "=> ",
+                }
+            }
+        }
     })
 
     lspconfig.lua_ls.setup({

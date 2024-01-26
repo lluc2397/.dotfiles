@@ -126,7 +126,6 @@ alias count='_count_files_inside'
 alias rs='source $HOME/.zshrc && update_alias && echo Source and alias updated && tmux source-file $CONFIG/.tmux.conf'
 alias obf='cd $DOTS && vim .'
 alias inv='tx $HOME/Projects/invfin/ && cd backend && cact invfin'
-alias es='vim $CONFIG/.zshrc'
 alias server_imp='_import_server_invfin_docs'
 alias biggest_file='sudo du -h --max-depth=1 / | sort -h'
 alias bgf='du -a | sort -nr | head'
@@ -136,8 +135,6 @@ alias p='$PROJECTS'
 alias lsf='_list_and_filter'
 alias notes='cd $HOME/Notes && git pull github master'
 alias sd='_shutdown_and_save'
-alias ed='sudo nvim /etc/systemd/system/'
-#D# Edit the deamons services
 
 #C# Todo
 alias todo='$TODO'
@@ -176,6 +173,15 @@ alias copy_db='_copy_db'
 alias export_table='_export_table'
 alias import_table='_import_table'
 
+#C# Edit
+alias ea='vim $CONFIG/.bash_alias'
+alias ef='vim $CONFIG/.bash_functions.sh'
+alias ec='vim $CONFIG'
+alias ev='vim $CONFIG/.config/nvim'
+alias es='vim $CONFIG/.zshrc'
+alias ed='sudo nvim /etc/systemd/system/'
+#D# Edit the deamons services
+
 #C# Alias
 alias pyalias='py $DOTS/pyalias.py'
 alias update_alias='pyalias update'
@@ -183,12 +189,9 @@ alias ca='pyalias alias'
 #D# An alternative to alias to see your custom alias
 alias cats='pyalias categories'
 #D# An alternative to categories to see your categories for the custom alias
-alias ea='vim $CONFIG/.bash_alias'
-alias ef='vim $CONFIG/.bash_functions.sh'
 alias new_alias='_create_new_alias'
 alias delete_alias='_delete_alias'
-alias ec='vim $CONFIG'
-alias ev='vim $CONFIG/.config/nvim'
+
 #C# Others
 alias vim='nvim'
 alias refresh_keys='sudo apt-key adv --refresh-keys --keyserver keyserver.ubuntu.com'
@@ -200,4 +203,5 @@ alias con-ap='bluetoothctl connect F8:4D:89:37:41:A0'
 #D# connect to the airpods
 alias xsc="xclip -selection clipboard"
 alias my_ip="ip address | grep -o \"inet 192.*/\" | awk '{ print \$2 }' | tr / ' ' | xargs"
+alias time='/usr/bin/time -f "Command: %C\nElapsed Time: %E\nCPU Percentage: %P\nMax RSS: %M KB\nI/O Inputs: %I\nI/O Outputs: %O\nMajor Page Faults: %F\nMinor Page Faults: %R\nUser CPU Time: %U\nSystem CPU Time: %S\nContext Switches (Involuntary): %c\nContext Switches (Voluntary): %w\nSignals Delivered: %k\nAverage Stack Size: %p KB\nAverage Resident Set Size: %t KB\nSocket Messages Received: %r\nSocket Messages Sent: %s\nExit Status: %x"'
 
