@@ -15,7 +15,7 @@ return {
       map("<leader>a", function() harpoon:list():append() end)
       map("<leader>r", function() harpoon:list():remove() end)
       map("<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-      map("<C-a>", function() harpoon:list():prev() end)
+      map("<C-n>", function() harpoon:list():prev() end)
       map("<C-l>", function() harpoon:list():next() end)
       map("<leader>cl", function() harpoon:list():clear() end)
     end
