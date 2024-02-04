@@ -7,6 +7,7 @@ local opts = {
         "ruff_lsp",
         "volar",
         "pyright",
+        "bufls",
     },
 
     automatic_installation = true,
@@ -88,6 +89,11 @@ local config = function()
     })
 
     lspconfig.ruff_lsp.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+    })
+
+    lspconfig.bufls.setup({
         capabilities = capabilities,
         on_attach = on_attach,
     })
