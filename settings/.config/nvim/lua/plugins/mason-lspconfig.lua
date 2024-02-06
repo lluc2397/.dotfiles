@@ -26,6 +26,12 @@ local config = function()
     local on_attach = function(client, bufnr)
         opts.buffer = bufnr
 
+        local function buf_set_option(...)
+            vim.api.nvim_buf_set_option(bufnr, ...)
+        end
+
+        buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
         -- set keybinds
         opts.desc = "Show LSP references"
         keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
@@ -77,7 +83,19 @@ local config = function()
         local hl = "DiagnosticSign" .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
+    local configs = require 'lspconfig.configs'
 
+    configs.testingls = {
+        default_config = {
+            cmd = { "/home/lucas/Projects/knowbase/testing-ls/target/debug/testing-ls" },
+            filetypes = { 'lua', "md" },
+            root_dir = lspconfig.util.root_pattern("/home/lucas/Projects/knowbase/testing-ls/Cargo.toml"),
+        },
+    }
+    lspconfig.testingls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+    })
     lspconfig.bashls.setup({
         capabilities = capabilities,
         on_attach = on_attach,
