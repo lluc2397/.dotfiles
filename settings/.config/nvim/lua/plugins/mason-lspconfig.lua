@@ -87,9 +87,9 @@ local config = function()
 
     configs.testingls = {
         default_config = {
-            cmd = { "/home/lucas/Projects/knowbase/testing-ls/target/debug/testing-ls" },
-            filetypes = { 'lua', "md" },
-            root_dir = lspconfig.util.root_pattern("/home/lucas/Projects/knowbase/testing-ls/Cargo.toml"),
+            cmd = { "/home/lucas/Projects/knowbase/knowbase/lsp/target/debug/lsp" },
+            filetypes = {"markdown"},
+            root_dir = lspconfig.util.root_pattern("/home/lucas/Projects/knowbase/knowbase/lsp/Cargo.toml"),
         },
     }
     lspconfig.testingls.setup({
