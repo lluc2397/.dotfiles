@@ -8,6 +8,7 @@ local opts = {
         "volar",
         "pyright",
         "bufls",
+        "terraformls",
     },
 
     automatic_installation = true,
@@ -88,7 +89,7 @@ local config = function()
     configs.testingls = {
         default_config = {
             cmd = { "/home/lucas/Projects/knowbase/knowbase/lsp/target/debug/lsp" },
-            filetypes = {"markdown"},
+            filetypes = { "markdown" },
             root_dir = lspconfig.util.root_pattern("/home/lucas/Projects/knowbase/knowbase/lsp/Cargo.toml"),
         },
     }
@@ -96,6 +97,12 @@ local config = function()
         capabilities = capabilities,
         on_attach = on_attach,
     })
+
+    lspconfig.terraformls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+    })
+
     lspconfig.bashls.setup({
         capabilities = capabilities,
         on_attach = on_attach,
