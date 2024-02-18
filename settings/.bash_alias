@@ -137,7 +137,7 @@ alias notes='cd $HOME/Notes && git pull github master'
 alias sd='_shutdown_and_save'
 
 #C# Todo
-alias todo='$TODO'
+alias todo='$KB todo'
 alias ctt='todo task create'
 alias rtt='todo task read'
 alias utt='todo task update'

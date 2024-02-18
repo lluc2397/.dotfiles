@@ -57,11 +57,7 @@ if [[ -d "$GO_PATH" ]]; then
     export PATH="$PATH:$GO_PATH/bin"
 fi
 
-export PROJECTS="$HOME/Projects/"
-export DEV="$HOME/Dev/"
-export TODO="$DEV/rusty/todo/target/release/todo"
 export NOTES="$HOME/Notes/"
-export EXOS="$DEV/Exercises/"
 export DOTS="$HOME/.dotfiles"
 export CONFIG="$DOTS/settings"
 export SCRIPT="$DOTS/scripts"
