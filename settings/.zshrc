@@ -85,3 +85,6 @@ unset __conda_setup
 # <<< conda initialize <<<
 #
 eval `dircolors /home/lucas/.dir_colors/dircolors`
+
+# Turso
+export PATH="/home/lucas/.turso:$PATH"

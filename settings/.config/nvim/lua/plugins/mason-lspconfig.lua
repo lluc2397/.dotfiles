@@ -3,7 +3,7 @@ local opts = {
         "bashls",
         "tsserver",
         "lua_ls",
---        "rust_analyzer",
+        "rust_analyzer",
         "ruff_lsp",
         "volar",
         "pyright",
