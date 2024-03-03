@@ -5,19 +5,13 @@ _fzf() {
 
 #C# Tmux
 _new_named_session() {
-	if [[ -d $1 ]]; then
-		# is a directory
+	if [[ -d $1 || -f $1 ]]; then
 		name=$(basename "$1" | tr . _)
-		dir_to_go="$1"
-	elif [[ -f $1 ]]; then
-		# is a file
-		name=$(basename "$1" | tr . _)
-		dir_to_go=$(dirname "$1")
+		dir_to_go=$(realpath "$1")
 	else
 		echo "WTF $1"
 		return 1
 	fi
-
 	tmux_running=$(pgrep tmux)
 
 	if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
