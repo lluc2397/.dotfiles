@@ -89,7 +89,7 @@ _cd_and_git_save() {
 }
 
 _shutdown_and_save() {
-	$TODO tool clean
+	$KB tool clean
 	c_date=$(date +"%Y_%m_%dT%H_%M_%S")
 	echo "$c_date"
 	commit_msg="${1:-$c_date}"
