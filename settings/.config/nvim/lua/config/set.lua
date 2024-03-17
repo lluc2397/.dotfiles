@@ -30,3 +30,6 @@ opt.isfname:append("@-@")
 opt.updatetime = 50
 
 opt.colorcolumn = "100"
+
+opt.spelllang = 'en,fr,es'
+--opt.spell = true
