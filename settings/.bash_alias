@@ -133,7 +133,7 @@ alias agent='eval "$(ssh-agent -s)"'
 alias copy='xclip -sel clip'
 alias p='$PROJECTS'
 alias lsf='_list_and_filter'
-alias notes='cd $HOME/Notes && git pull github master'
+alias notes='tx $HOME/Notes'
 alias sd='_shutdown_and_save'
 
 #C# Todo
