@@ -1,9 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export ZSH_CUSTOM="$HOME/.dotfiles/settings/zsh/"
 
-ZSH_THEME="agnoster"
-#ZSH_THEME="lucas"
-
+ZSH_THEME="mygnoster"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -28,6 +27,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+    virtualenv
 	zsh-syntax-highlighting
     you-should-use
     git

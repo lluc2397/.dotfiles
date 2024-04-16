@@ -1,0 +1,3 @@
+[submodule "settings/zsh/plugins/you-should-use"]
+	path = settings/zsh/plugins/you-should-use
+	url = git@github.com:MichaelAquilina/zsh-you-should-use.git
