@@ -28,6 +28,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     virtualenv
+    tmux
 	zsh-syntax-highlighting
     you-should-use
     git

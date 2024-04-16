@@ -151,70 +151,6 @@ prompt_git() {
     echo -n "${${ref:gs/%/%%}/refs\/heads\//$PL_BRANCH_CHAR }${vcs_info_msg_0_%% }${mode}"
   fi
 }
-
-prompt_bzr() {
-  (( $+commands[bzr] )) || return
-
-  # Test if bzr repository in directory hierarchy
-  local dir="$PWD"
-  while [[ ! -d "$dir/.bzr" ]]; do
-    [[ "$dir" = "/" ]] && return
-    dir="${dir:h}"
-  done
-
-  local bzr_status status_mod status_all revision
-  if bzr_status=$(bzr status 2>&1); then
-    status_mod=$(echo -n "$bzr_status" | head -n1 | grep "modified" | wc -m)
-    status_all=$(echo -n "$bzr_status" | head -n1 | wc -m)
-    revision=${$(bzr log -r-1 --log-format line | cut -d: -f1):gs/%/%%}
-    if [[ $status_mod -gt 0 ]] ; then
-      prompt_segment yellow black "bzr@$revision ✚"
-    else
-      if [[ $status_all -gt 0 ]] ; then
-        prompt_segment yellow black "bzr@$revision"
-      else
-        prompt_segment green black "bzr@$revision"
-      fi
-    fi
-  fi
-}
-
-prompt_hg() {
-  (( $+commands[hg] )) || return
-  local rev st branch
-  if $(hg id >/dev/null 2>&1); then
-    if $(hg prompt >/dev/null 2>&1); then
-      if [[ $(hg prompt "{status|unknown}") = "?" ]]; then
-        # if files are not added
-        prompt_segment red white
-        st='±'
-      elif [[ -n $(hg prompt "{status|modified}") ]]; then
-        # if any modification
-        prompt_segment yellow black
-        st='±'
-      else
-        # if working copy is clean
-        prompt_segment green $CURRENT_FG
-      fi
-      echo -n ${$(hg prompt "☿ {rev}@{branch}"):gs/%/%%} $st
-    else
-      st=""
-      rev=$(hg id -n 2>/dev/null | sed 's/[^-0-9]//g')
-      branch=$(hg id -b 2>/dev/null)
-      if `hg st | grep -q "^\?"`; then
-        prompt_segment red black
-        st='±'
-      elif `hg st | grep -q "^[MA]"`; then
-        prompt_segment yellow black
-        st='±'
-      else
-        prompt_segment green $CURRENT_FG
-      fi
-      echo -n "☿ ${rev:gs/%/%%}@${branch:gs/%/%%}" $st
-    fi
-  fi
-}
-
 # Dir: current working directory
 prompt_dir() {
   prompt_segment blue $CURRENT_FG ${PWD##*/}
@@ -253,12 +189,14 @@ preexec() { # cspell:disable-line
 #}
 
 prompt_time() {
-        # cost
-        local time_end="$(date +%s.%3N)"
-        local cost=$(bc -l <<<"${time_end}-${_COMMAND_TIME_BEGIN}")
-        _COMMAND_TIME_BEGIN="-20200325"
-
-  prompt_segment green black "[$cost s]"
+  if [ "$_COMMAND_TIME_BEGIN" = "-20200325" ] || [ "$_COMMAND_TIME_BEGIN" = "" ]; then
+    local cost="0"
+  else
+    local time_end="$(date +%s.%3N)"
+    local cost=$(bc -l <<<"${time_end}-${_COMMAND_TIME_BEGIN}")
+    _COMMAND_TIME_BEGIN="-20200325"
+  fi
+  prompt_segment cyan black "$cost"s
 }
 
 
@@ -271,8 +209,6 @@ build_prompt() {
   prompt_dir
   prompt_git
   prompt_time
-  prompt_bzr
-  prompt_hg
   prompt_end
 }
 
