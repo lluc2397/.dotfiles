@@ -9,3 +9,5 @@ export SCRIPT="$DOTS/scripts"
 export WORK='$HOME/yanport'
 #mkdir "$PROJECTS"
 #mkdir "$DEV"
+export GOOGLE_APPLICATION_CREDENTIALS='/home/lucas/.config/gcloud/application_default_credentials.json'
+export GOOGLE_CLOUD_PROJECT='yanport-api'
