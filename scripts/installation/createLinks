@@ -14,9 +14,20 @@ done
 
 function create_link(){
     main_setting="$1"
-    sync_setting="${2:-$main_setting}"
-    ln -s "$main_setting" "$HOME$sync_setting"
-    #ln -ns "$main_setting" "$HOME$sync_setting" use the n when is a directory
+    sync_setting="$HOME$2"
+    
+    # TODO: fix the config when doing nvim and config
+    if [[ -d $main_setting ]]; then
+        # Is a dir
+        ln -nsf "$main_setting" "$sync_setting"
+    elif [[ -f $main_setting ]]; then
+        ln -sf "$main_setting" "$sync_setting"
+    else
+        echo "$main_setting is not valid"
+        exit 1
+    fi
+
+    echo "$main_setting" "$sync_setting" linked
 }
 
 echo "Linking files"

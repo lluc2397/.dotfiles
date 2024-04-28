@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export ZSH_CUSTOM="$HOME/.dotfiles/settings/zsh/"
+export ZSH_CUSTOM="$HOME/.dotfiles/zsh/"
 
 ZSH_THEME="mygnoster"
 # Uncomment the following line to use case-sensitive completion.
