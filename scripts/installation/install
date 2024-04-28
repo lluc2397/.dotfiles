@@ -10,6 +10,12 @@ echo "The tmux package manager it's installed. You will have to enter into tmux 
 #cargo install cargo-cache
 #cargo install cargo-watch
 
+# We need to set the ssh keys before and have them locally
+chmod 600 .ssh/{bitbucket,generic,github_actions,gitlab,id_github,hetzner}
+ssh-add .ssh/{bitbucket,generic,github_actions,gitlab,id_github,hetzner}
+# git clone git@github.com:lucas-montes/yap.git $HOME/projects/yap --recursive
+# git clone git@github.com:lucas-montes/notes.git
+
 . "$HOME/.dotfiles/scripts/installation/neovimSetup"
 . "$HOME/.dotfiles/scripts/installation/createLinks"
 

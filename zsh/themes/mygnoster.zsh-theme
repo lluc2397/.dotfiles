@@ -158,8 +158,17 @@ prompt_dir() {
 
 # Virtualenv: current working virtualenv
 prompt_virtualenv() {
-  if [[ -n "$VIRTUAL_ENV" && -n "$VIRTUAL_ENV_DISABLE_PROMPT" ]]; then
-    prompt_segment blue black "(${VIRTUAL_ENV:t:gs/%/%%})"
+  local env='';
+
+  # if "$CONDA_DEFAULT_ENV" variable exists,
+  # then you are using conda to manage python virtual env
+  if [[ -n "$CONDA_DEFAULT_ENV" ]]; then
+    env="$CONDA_DEFAULT_ENV"
+  elif [[ -n "$VIRTUAL_ENV" && -n "$VIRTUAL_ENV_DISABLE_PROMPT" ]]; then
+    env="$VIRTUAL_ENV"
+  fi
+  if [[ -n "$env" ]]; then
+    prompt_segment blue black "${env:t:gs/%/%%}"
   fi
 }
 
