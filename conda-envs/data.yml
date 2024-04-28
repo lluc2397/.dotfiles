@@ -1,8 +1,8 @@
-name: data-sc
+name: data
 
 dependencies:
   - numpy
-  - polars
+  - conda-forge::polars
   - matplotlib
   - pandas
   - ruff
@@ -17,4 +17,3 @@ dependencies:
   - seaborn
   - ipykernel
   - plotly
-  - scikit-learn-intelex

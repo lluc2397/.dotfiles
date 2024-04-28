@@ -5,6 +5,11 @@ sudo apt -y install fonts-powerline curl wget zsh tmux fzf build-essential ripgr
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 echo "The tmux package manager it's installed. You will have to enter into tmux and run prefix+I to install the other packages"
 
+#curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+#. "$HOME/.cargo/env"
+#cargo install cargo-cache
+#cargo install cargo-watch
+
 . "$HOME/.dotfiles/scripts/installation/neovimSetup"
 . "$HOME/.dotfiles/scripts/installation/createLinks"
 

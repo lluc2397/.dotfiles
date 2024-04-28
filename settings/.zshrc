@@ -1,6 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$HOME/.dotfiles/zsh/"
+export CONDA_AUTO_ACTIVATE_BASE=false
 
 ZSH_THEME="mygnoster"
 # Uncomment the following line to use case-sensitive completion.
@@ -58,7 +59,7 @@ if [[ -d "$GO_PATH" ]]; then
     export PATH="$PATH:$GO_PATH/bin"
 fi
 
-export NOTES="$HOME/Notes/"
+export NOTES="$HOME/notes/"
 export DOTS="$HOME/.dotfiles"
 export CONFIG="$DOTS/settings"
 export SCRIPT="$DOTS/scripts"
@@ -86,6 +87,8 @@ unset __conda_setup
 # <<< conda initialize <<<
 #
 eval `dircolors /home/lucas/.dir_colors/dircolors`
+
+. "$HOME/.cargo/env"
 
 # Turso
 export PATH="/home/lucas/.turso:$PATH"

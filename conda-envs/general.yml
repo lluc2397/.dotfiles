@@ -1,8 +1,6 @@
-name: neo
+name: general
 
 dependencies:
-  - nodejs
-  - python
   - mypy
   - conda-forge::pynvim
   - ruff

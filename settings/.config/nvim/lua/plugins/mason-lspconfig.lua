@@ -1,14 +1,10 @@
 local opts = {
     ensure_installed = {
         "bashls",
-        "tsserver",
         "lua_ls",
         "rust_analyzer",
         "ruff_lsp",
-        "volar",
         "pyright",
-        "bufls",
-        "terraformls",
     },
 
     automatic_installation = true,
