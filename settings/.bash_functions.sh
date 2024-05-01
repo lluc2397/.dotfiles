@@ -96,7 +96,7 @@ _shutdown_and_save() {
 	_cd_and_git_save "$HOME/Notes" "$commit_msg"
 	_cd_and_git_save "$DOTS" "$commit_msg"
 	_cd_and_git_save "$HOME/Dev/Exercises/" "$commit_msg"
-#	shutdown now
+	shutdown now
 }
 
 _list_and_filter() {
