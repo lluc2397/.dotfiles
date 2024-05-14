@@ -46,6 +46,7 @@ local function setPythonVenv()
             -- config anyways 'cause ruff isn't installed or smt
             vim.g.python3_host_prog = local_venv
         else
+            print("python from neo")
             vim.g.python3_host_prog = "/home/lucas/miniconda3/envs/neo/bin/python"
         end
     end

@@ -25,5 +25,9 @@ echo "Shell changed to zsh"
 
 . "$HOME/.dotfiles/scripts/installation/downloadFonts"
 
+# Docker
+curl -sSL https://get.docker.com | sudo sh
+sudo usermod -aG docker $USER
+
 echo "Installing OMZ"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
