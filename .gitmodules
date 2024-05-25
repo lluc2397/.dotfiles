@@ -4,9 +4,3 @@
 [submodule "zsh/plugins/you-should-use"]
 	path = zsh/plugins/you-should-use
 	url = https://github.com/MichaelAquilina/zsh-you-should-use.git
-[submodule "tmux/plugins/catppuccin"]
-	path = tmux/plugins/catppuccin
-	url = git@github.com:catppuccin/tmux.git
-[submodule "tmux/plugins/tmux"]
-	path = tmux/plugins/tmux
-	url = git@github.com:catppuccin/tmux.git
