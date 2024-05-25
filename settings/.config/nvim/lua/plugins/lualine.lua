@@ -2,7 +2,7 @@ local config = function()
     -- Color table for highlights
     -- stylua: ignore
     local colors = {
-        bg       = '#202328',
+        bg       = '#000000',
         fg       = '#bbc2cf',
         yellow   = '#ECBE7B',
         cyan     = '#008080',
@@ -76,7 +76,7 @@ local config = function()
 
     ins_left {
         function()
-            return '▊'
+            return ''
         end,
         color = { fg = colors.blue },      -- Sets highlighting of component
         padding = { left = 0, right = 1 }, -- We don't need space before this
@@ -194,7 +194,7 @@ local config = function()
 
     ins_right {
         function()
-            return '▊'
+            return ''
         end,
         color = { fg = colors.blue },
         padding = { left = 1 },

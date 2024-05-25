@@ -34,22 +34,28 @@ local function getFromSystem()
 end
 
 local function setPythonVenv()
-    if vim.fn.has('win32') == 1 then
-        vim.g.python3_host_prog = 'C:/path/to/python3.exe'
-    else
-        local local_venv = getFromLocalVenv()
-        local sys_python = getFromSystem()
-        if sys_python ~= nil then
-            vim.g.python3_host_prog = sys_python
-        elseif local_venv ~= nil then
-            -- make this setting optional maybe I want to use the neo
-            -- config anyways 'cause ruff isn't installed or smt
-            vim.g.python3_host_prog = local_venv
-        else
-            print("python from neo")
-            vim.g.python3_host_prog = "/home/lucas/miniconda3/envs/neo/bin/python"
-        end
-    end
+    print("python and node from neo")
+    vim.g.python3_host_prog = "/home/lucas/miniconda3/envs/neo/bin/python"
+    vim.g.python_host_prog = "/home/lucas/miniconda3/envs/neo/bin/python"
+    vim.g.node_host_prog = "/home/lucas/miniconda3/envs/neo/bin/node"
+    --if vim.fn.has('win32') == 1 then
+    --    vim.g.python3_host_prog = 'C:/path/to/python3.exe'
+    --else
+    --    local local_venv = getFromLocalVenv()
+    --    local sys_python = getFromSystem()
+    --    if sys_python ~= nil then
+    --        vim.g.python3_host_prog = sys_python
+    --    elseif local_venv ~= nil then
+    --        -- make this setting optional maybe I want to use the neo
+    --        -- config anyways 'cause ruff isn't installed or smt
+    --        vim.g.python3_host_prog = local_venv
+    --    else
+    --        print("python and node from neo")
+    --        vim.g.python3_host_prog = "/home/lucas/miniconda3/envs/neo/bin/python"
+    --        vim.g.node_host_prog ="/home/lucas/miniconda3/envs/neo/bin/node"
+    --        -- move this out
+    --    end
+    --end
 end
 
 function GetFnOrClassPath()

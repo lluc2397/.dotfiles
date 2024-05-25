@@ -88,17 +88,6 @@ _cd_and_git_save() {
 	_git_save_everywhere "$2"
 }
 
-_shutdown_and_save() {
-#TODO: fix	$KB todo tool clean
-	c_date=$(date +"%Y_%m_%dT%H_%M_%S")
-	echo "$c_date"
-	commit_msg="${1:-$c_date}"
-	_cd_and_git_save "$HOME/Notes" "$commit_msg"
-	_cd_and_git_save "$DOTS" "$commit_msg"
-	_cd_and_git_save "$HOME/Dev/Exercises/" "$commit_msg"
-	sudo shutdown now
-}
-
 _list_and_filter() {
 	WHERE="${2:-.}"
 	ls "$WHERE" | grep -R "$1"
