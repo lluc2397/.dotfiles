@@ -360,16 +360,14 @@ _export_table() {
 
 #C# Server-backup
 _download_backup() {
-	DB_NAME="${1:-prod}"
-	TO="${2:-$HOME/Server/Backups}"
-	backup_filename="${DB_NAME}_backup_$(date +'%Y_%m_%dT%H_%M_%S').sql.gz"
-	echo "Starting ssh command"
-	ssh hetzner "pg_dump "${DB_NAME}" | gzip > /home/lucas/backups/invfin/"${backup_filename}""
-	FROM=hetzner:"/home/lucas/backups/invfin/${backup_filename}"
-	rsync -chavzP --stats --progress "$FROM" "$TO"
-	LOCAL_PATH_INVFIN="$HOME/Projects/invfin/backups/"
-	echo Copyin "$TO"/"$backup_filename" into "$LOCAL_PATH_INVFIN""$backup_filename"
-	cp "$TO"/"$backup_filename" "$LOCAL_PATH_INVFIN""$backup_filename"
+	db_name="${1:-prod}"
+	local_path="$PROJECTS/elerem/backups/"
+	backup_filename="${db_name}_backup_$(date +'%Y_%m_%dT%H_%M_%S').sql.gz"
+	echo "Starting ssh command to dump the database"
+	ssh hetzner "pg_dump "${db_name}" | gzip > /home/lucas/backups/invfin/"${backup_filename}""
+	echo "Ssh command finished"
+	origin_file=hetzner:"/home/lucas/backups/invfin/${backup_filename}"
+	rsync -chavzP --stats --progress "$origin_file" "$local_path"
 }
 
 _load_last_backup_locally() {
@@ -455,4 +453,10 @@ _restart_migrations_remotely() {
 EOF
 	git pull prod master
 	git push
+}
+
+_backup_data() {
+    for file in []; do
+    _copy_with_rsync . lucas@raspi:~/media/cold
+done
 }
