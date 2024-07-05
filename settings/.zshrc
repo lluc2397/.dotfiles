@@ -71,21 +71,18 @@ export EDITOR=nvim
 if [[ -f "$HOME/.workspace" ]]; then
     source "$HOME/.workspace"
 fi
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/lucas/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/lucas/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/lucas/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/lucas/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-#
+
+
+# Load pyenv automatically by appending
+# the following to 
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Load pyenv-virtualenv automatically by adding
+eval "$(pyenv virtualenv-init -)"
+
+
 eval `dircolors /home/lucas/.dir_colors/dircolors`
 
 . "$HOME/.cargo/env"

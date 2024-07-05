@@ -192,6 +192,7 @@ alias new_alias='_create_new_alias'
 alias delete_alias='_delete_alias'
 
 #C# Others
+alias lg='lazygit'
 alias vim='nvim'
 alias refresh_keys='sudo apt-key adv --refresh-keys --keyserver keyserver.ubuntu.com'
 alias f='l | grep'
